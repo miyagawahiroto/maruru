@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>マルる</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body id="day_body">
+    <div class="hdr">
+        <img class="icon" src="img/m1.jpg" height="100" width="100">
+        <p class="kinou">〈</p>
+        <p class="day1">今日</p>
+        <p class="asu">〉</p>
+        <img class="menu" src="img/menu1.png" height="100" width="100">
+
+
+    </div>
+    <div class="day">
+        <p class="day2">8月22日 金曜日</p>
+        <div class="task1">
+            <img class="color1" src="img/b-1.png">
+
+            <p>
+                <span class="taskname">運動</span><br>
+                <span class="tasktime">10:00~12:00</span><br>
+                <!--50文字まで-->
+                <span class="mambername" id="num1">
+                </span><br>
+
+                <img class="taskicon" src="img/m1.jpg" height="100" width="100">
+            </p>
+            <a href="maruru_task1.html"><img class="btn" src="img/button1.png"></a>
+        </div>
+        <div class="task1">
+            <img class="color1" src="img/b-2.png">
+
+            <p>
+                <span class="taskname">勉強</span><br>
+                <span class="tasktime">13:00~14:00</span><br>
+                <!--50文字まで-->
+                <span class="mambername" id="num2">
+                </span><br>
+
+                <img class="taskicon" src="img/m1.jpg" height="100" width="100">
+            </p>
+            <a href="maruru_task2.html"><img class="btn" src="img/button2.png"></a>
+        </div>
+        <div class="task1">
+            <img class="color1" src="img/b-3.png">
+
+            <p>
+                <span class="taskname">会議</span><br>
+                <span class="tasktime">13:00~14:00</span><br>
+                <!--50文字まで-->
+                <span class="mambername" id="num3">
+                </span><br>
+
+                <img class="taskicon" src="img/m1.jpg" height="100" width="100">
+            </p>
+            <a href="maruru_task3.html"><img class="btn" src="img/button3.png"></a>
+        </div>
+
+    </div>
+
+    <script>
+
+        console.log(window.sessionStorage.getItem(['user_name']));
+
+
+        var daycount = new Date('2022', '9', '0').getDate();
+        console.log("count : " + daycount);
+        for (let step = 1; step <= daycount; step++) {
+            const dayweek = new Date(2022, 7, step);
+            console.log(dayweek);
+            var dayOfWeekStr = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"];
+
+            const element = document.querySelector('#day_body');
+            const createElement = '<div class="day"><p class="day2" id="' + "task_day" + step + '">' + "8月" + step + "日 " + dayOfWeekStr[dayweek.getDay()] + '</p><div class="task0"><p class="task_none_p">予定を追加する</p></div></div>';
+            element.insertAdjacentHTML('beforeend', createElement);
+        }
+
+        
+
+
+        var count1 = 0;
+        var count2 = 0;
+        var count3 = 0;
+
+        var btncount = 0;
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCprQLyu418PTM875OtqqJk6bqNAg5n_TY",
+            authDomain: "maruru-63d5d.firebaseapp.com",
+            projectId: "maruru-63d5d",
+            storageBucket: "maruru-63d5d.appspot.com",
+            messagingSenderId: "199289528279",
+            appId: "1:199289528279:web:0d73d7d39708f617203592"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Initialize Cloud Firestore and get a reference to the service
+        const db = firebase.firestore();
+
+
+        db.collection("users").doc("count")
+            .onSnapshot((doc) => {
+                count1 = doc.data().task1;
+                count2 = doc.data().task2;
+                count3 = doc.data().task3;
+
+
+                document.getElementById("num1").textContent = "現在〇〇さんと〇〇さんと他" + (count1 - 2) + "名が参加中です";
+                document.getElementById("num2").textContent = "現在〇〇さんと〇〇さんと他" + (count2 - 2) + "名が参加中です";
+                document.getElementById("num3").textContent = "現在〇〇さんと〇〇さんと他" + (count3 - 2) + "名が参加中です";
+                console.log("count1 : " + count1);
+                console.log("count2 : " + count2);
+                console.log("count3 : " + count3);
+            });
+
+    </script>
+
+    <img class="fixed-btn" src="img/task_plas.png">
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+.pct {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 95%;
+    height: 1600px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+
+}
+
+.return {
+    flex-basis: 5%;
+    font-size: 60px;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+
+.user_count_div1 {
+    background-color: #fff;
+
+}
+
+.user_count_div2 {
+    background-color: #fff;
+    margin-top: 20%;
+}
+
+
+.user_count1 {
+    flex-basis: 5%;
+    font-size: 60px;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-bottom: 0%;
+    padding: 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+
+.user_count2 {
+    flex-basis: 5%;
+    font-size: 200px;
+    font-weight: bolder;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 0;
+    text-align: center;
+    background-color: #fff;
+
+}
+
+@keyframes fadeup {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.user_count3 {
+    flex-basis: 5%;
+    font-size: 60px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 0%;
+    padding: 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+/*
+.user_count{
+    flex-basis:5%;
+    font-size: 60px;
+    font-weight: bolder;
+    margin-top: 10px;
+    text-align: center;
+}
+.user_count2{
+    flex-basis:5%;
+    font-size: 60px;
+    font-weight: bolder;
+    margin-top: 26%;
+    text-align: center;
+}
+*/
+
+.task_icon {
+    align-self: center;
+    background-color: #fff;
+}
+
+.task_icon2 {
+    align-self: center;
+    background-color: #fff;
+    
+}
+
+#task_icon_div {
+    align-self: center;
+    background-color: #fff;
+    width: 400px;
+    height: 400px;
+    opacity: 1;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotateY(0);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.btn {
+    flex-basis: 10%;
+    height: 200px;
+    width: 400px;
+    border-radius: 15px;
+    align-self: center;
+    margin-bottom: 10%;
+}
+
+.lnkbtn {
+    align-self: center;
+    margin-bottom: 10%;
+    background-color: #fff;
+}

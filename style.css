@@ -1,0 +1,176 @@
+* {
+    background-color: #dcdcdc;
+}
+
+.icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    border-radius: 50%;
+    background-color: #ff0000;
+
+}
+.taskicon{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 60px;
+    width: 60px;
+    margin-left: auto;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.menu {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+    background-color: #ff000f;
+
+}
+
+.hdr {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    background-color: #ff0000;
+
+}
+
+.kinou{
+    flex-basis:10%;
+    font-size: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    color: white;
+    background-color: #ff0000;
+}
+
+.asu{
+    flex-basis:10%;
+    font-size: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    color: white;
+    background-color: #ff0000;
+}
+
+
+.day1 {
+    flex-basis:30%;
+    font-size: 60px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    
+    color: white;
+    background-color: #ff0000;
+
+}
+
+.day2 {
+    font-size: 50px;
+    margin-top: 30px;
+    margin-bottom: 0%;
+    margin-left: 10%;
+    background-color: #dcdcdc;
+}
+
+.taskname {
+    font-size: 50px;
+    font-weight: bolder;
+    background-color: #fff;
+    height: 55px;
+    width: 100%;
+
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: auto;
+    padding: 0%;
+}
+
+.tasktime {
+    font-size: 30px;
+    color: #c0c0c0;
+    background-color: #fff;
+    height: 35px;
+
+    margin-top: 5px;
+    margin-left: auto;
+}
+
+.task_none_p{
+    font-size: 30px;
+    font-weight:bolder;
+    background-color: #fff;
+    margin-left: 5%;
+}
+
+
+.mambername{
+    font-size: 20px;
+    font-weight:bolder;
+    margin-left: auto;
+    background-color: #fff;
+}
+
+.btn{
+    height: 100px;
+    width: 200px;
+    margin-top: 30px;
+    margin-right: 30px;
+    border-radius: 15px
+}
+
+.task0{
+    width: 95%;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border-radius: 15px;
+}
+.task1 {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+
+}
+
+.color1 {
+    width: 10px;
+    height: 100px;
+    margin-left: 15px;
+    margin-bottom: 50%;
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+p{
+    flex-basis:60%;
+    background-color: #fff
+}
+
+a{
+    background-color: #fff;
+}
+
+.fixed-btn {
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+

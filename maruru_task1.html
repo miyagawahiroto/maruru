@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>マルる</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_task.css">
+</head>
+
+
+<body>
+
+    <div class="hdr">
+        <img class="icon" src="img/m1.jpg" height="100" width="100">
+        <p class="kinou">〈</p>
+        <p class="day1">今日</p>
+        <p class="asu">〉</p>
+        <img class="menu" src="img/menu1.png" height="100" width="100">
+    </div>
+    <div class="pct" id="pctid">
+        <a class="return" id="return" href="maruru.html">←もどる</a>
+        <div class="user_count_div1" id="usercountdiv">
+            <p class="user_count1">現在</p>
+            <p class="user_count2" id="num"></p>
+            <p class="user_count3">が運動中です</p>
+        </div>
+
+
+        <div id="task_icon_div">
+            <svg class="task_icon" version="1.1" style="fill: #c0c0c0" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                <style type="text/css">
+                </style>
+                <g>
+                    <path class="st0" d="M293.006,92.625c24.891,0,45.076-20.176,45.076-45.068S317.896,2.49,293.006,2.49
+                    c-24.883,0-45.06,20.176-45.06,45.068S268.123,92.625,293.006,92.625z"></path>
+                    <path class="st0" d="M153.846,167.987l60.642,36.187c7.539,4.506,16.734,5.316,24.952,2.214l35.916-19.348l17.03,68.695
+                    l-56.607-0.287c-9.534-0.027-18.59,4.201-24.673,11.548c-6.083,7.347-8.55,17.03-6.737,26.399l19.044,98.04
+                    c2.109,10.86,12.402,18.128,23.34,16.489l0.819-0.122c10.834-1.621,18.512-11.408,17.509-22.312l-6.449-70.247l84.74,3.156
+                    l31.576,50.244c6.51,6.581,13.962,12.176,22.102,16.612l69.567,37.999c9.744,5.037,21.745,1.429,27.096-8.149l0.384-0.671
+                    c5.333-9.561,2.144-21.623-7.208-27.306l-64.46-44.144l-39.908-85.141l-17.57-99.147l41.904-5.316l49.199,31.82
+                    c6.615,4.271,15.33,3.068,20.516-2.842l0.288-0.331c5.77-6.546,5.151-16.516-1.377-22.312l-44.022-39.142
+                    c-4.75-4.218-10.816-6.658-17.169-6.893l-94.597-6.127c-3.382-0.183-6.545,0.07-6.545,0.07c-1.412,0.121-2.842,0.296-4.262,0.531
+                    c-8,1.377-15.182,4.689-21.16,9.361l-65.532,44.196l-50.881-23.88c-7.904-4.428-17.875-1.804-22.573,5.936l-0.645,1.046
+                    c-2.318,3.843-3.033,8.436-1.952,12.785C147.213,161.948,149.993,165.686,153.846,167.987z"></path>
+                    <path class="st0" d="M511.615,472.601c-0.131-7.591-5.866-13.919-13.405-14.799l-444.784-52.17l-3.338-0.488l3.338-19.862
+                    L79.938,227.41l51.09,7.59l5.526-35.35l-56.468-8.497c-16.376-2.467-31.706,8.654-34.452,24.987L18.086,380.104L0.279,485.918
+                    c-0.984,5.865,0.663,11.878,4.506,16.419c3.853,4.55,9.5,7.173,15.453,7.173h12.306h464.272c4.079,0,7.974-1.638,10.833-4.541
+                    c2.85-2.902,4.419-6.833,4.349-10.911L511.615,472.601z"></path>
+                </g>
+            </svg>
+        </div>
+        <div class="lnkbtn" id="lnkbtn" onclick="onCLICK1()">
+            <img class="btn" id="btn" src="img/start1.png">
+        </div>
+
+    </div>
+
+
+    <script>
+        var count = 0;
+        var btncount = 0;
+        var isInit = false;
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCprQLyu418PTM875OtqqJk6bqNAg5n_TY",
+            authDomain: "maruru-63d5d.firebaseapp.com",
+            projectId: "maruru-63d5d",
+            storageBucket: "maruru-63d5d.appspot.com",
+            messagingSenderId: "199289528279",
+            appId: "1:199289528279:web:0d73d7d39708f617203592"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Initialize Cloud Firestore and get a reference to the service
+        const db = firebase.firestore();
+
+
+        //
+        db.collection("users").doc("count")
+            .onSnapshot((doc) => {
+                count = doc.data().task1;
+
+                document.getElementById("num").textContent =count+"人";
+                document.getElementById("num").style = "animation: fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;";
+                console.log("count : " + count);
+                isInit = true;
+
+                window.setTimeout(() => {
+                    document.getElementById("num").style = "animation: none";
+                }, 3000);
+            });
+
+    
+        function onCLICK1() {
+            if (!isInit) return;
+
+            if (btncount == 0) {
+                count++;
+                document.getElementById("return").remove();
+                document.getElementById("usercountdiv").className = 'user_count_div2';
+                document.getElementById("num").className = 'user_count2';
+                document.getElementById("_x32_").style = "fill:rgb(223, 86, 86); animation: 4s linear infinite rotation;";
+
+                document.getElementById("btn").src = "img/finish1.png";
+                btncount++;
+                console.log("count : " + btncount);
+
+            } else {
+                count--;
+                btncount--;
+                console.log("count : " + btncount);
+                window.location.href = 'maruru.html';
+            }
+
+
+            var washingtonRef = db.collection("users").doc("count");
+
+            // Set the "capital" field of the city 'DC'
+            return washingtonRef.update({
+                task1: count
+            })
+
+                .then(() => {
+                    console.log("Document successfully updated!");
+
+                })
+                .catch((error) => {
+                    // The document probably doesn't exist.
+                    console.error("Error updating document: ", error);
+                });
+        }
+
+    </script>
+
+</body>
+
+</html>
